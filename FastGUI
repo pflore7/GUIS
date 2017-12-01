@@ -1,0 +1,47 @@
+                      import java.awt.*;
+                      import java.awt.event.ActionEvent;
+                      import java.awt.event.ActionListener;
+
+                      import javax.swing.*;
+
+                      public class FastGUI extends JFrame implements ActionListener {
+                        JTextArea jta;
+                        JTextField jtf;
+
+                        public static void main(String[] args) {
+                          // TODO Auto-generated method stub
+                          FastGUI fg = new FastGUI();
+                          fg.run();
+                        }
+
+                        FastGUI()
+                        {
+                          Container cp = this.getContentPane();
+                          JPanel jp = new JPanel();
+                          cp.add(jp);
+                          this.jta = new JTextArea();
+                          jp.add(jta);
+                          this.jtf = new JTextField("text field");
+                          jp.add(jtf);
+                          jtf.addActionListener(this);
+                          this.setSize(new Dimension(400, 300));
+                          this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                          this.setVisible(true);
+                        }
+
+                        void run()
+                        {
+                          this.jta.setText("Welcome to my GUI app");
+                          this.jta.append("\nIt's awesome.");
+                          this.jta.append("\nMore to come soon");
+                        }
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                          // TODO Auto-generated method stub
+                          if (e.getSource() == this.jtf)
+                          {
+                            jtf.setText("");
+                          }
+                        }
+                      }
